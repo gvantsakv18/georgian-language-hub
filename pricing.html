@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subscription Plans | Georgian Language Hub</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Oswald:wght@700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <link rel="stylesheet" href="style.css"> 
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="logo">Georgian Language Hub</div>
+        <nav class="main-nav">
+            <a href="index.html">Home</a>
+            <a href="pricing.html">Pricing & Plans</a>
+            <a href="course.html">Video Courses</a>
+            <a href="about.html">About Us</a> 
+            <a href="contact.html">Contact</a> 
+            
+            <a href="https://www.instagram.com/learn_georgian_today/" target="_blank" aria-label="Follow us on Instagram" class="social-icon">
+                <i class="fab fa-instagram"></i> 
+            </a>
+        </nav>
+    </header>
+
+    <section class="page-hero-section">
+        <div class="hero-content">
+            <h1>Choose Your Subscription Plan</h1>
+            <p class="subtitle">Find the perfect plan to match your learning pace and budget.</p>
+        </div>
+    </section>
+
+    <section class="pricing-section">
+        <h2 class="section-title">Transparent Pricing, Unlimited Learning</h2>
+        
+        <div class="plan-toggle">
+            <span class="toggle-text active">Monthly Billing</span>
+            <label class="switch">
+                <input type="checkbox" id="billing-switch"> <span class="slider round"></span>
+            </label>
+            <span class="toggle-text">Annual Billing (Save 20%)</span>
+        </div>
+
+        <div class="pricing-grid">
+            
+            <div class="price-card" data-monthly-price="15" data-annual-price="144">
+                <h3>Basic Learner</h3>
+                <p class="price">$15<span>/month</span></p>
+                <p class="description">Start your journey with fundamental access.</p>
+                
+                <ul class="features-list">
+                    <li><i class="fas fa-check"></i> Access to A1 & A2 Courses</li>
+                    <li><i class="fas fa-check"></i> 50+ Core Vocabulary Lessons</li>
+                    <li><i class="fas fa-check"></i> Basic Grammar Video Library</li>
+                    <li class="disabled"><i class="fas fa-times"></i> Live Q&A Sessions</li>
+                    <li class="disabled"><i class="fas fa-times"></i> Priority Support</li>
+                </ul>
+                <a href="#" class="cta-button secondary-btn">Start 7-Day Free Trial</a>
+            </div>
+
+            <div class="price-card featured" data-monthly-price="29" data-annual-price="278">
+                <span class="tag">Most Popular</span>
+                <h3>Standard Pro</h3>
+                <p class="price">$29<span>/month</span></p>
+                <p class="description">Full access to all major course content.</p>
+                
+                <ul class="features-list">
+                    <li><i class="fas fa-check"></i> Access to A1 through B2 Courses</li>
+                    <li><i class="fas fa-check"></i> All Vocabulary & Grammar Lessons</li>
+                    <li><i class="fas fa-check"></i> Culture & History Modules</li>
+                    <li><i class="fas fa-check"></i> Monthly Live Q&A Sessions</li>
+                    <li class="disabled"><i class="fas fa-times"></i> Dedicated 1-on-1 Feedback</li>
+                </ul>
+                <a href="#" class="cta-button primary-btn">Subscribe Now</a>
+            </div>
+
+            <div class="price-card" data-monthly-price="59" data-annual-price="566">
+                <h3>Premium Expert</h3>
+                <p class="price">$59<span>/month</span></p>
+                <p class="description">Maximize fluency with personal attention.</p>
+                
+                <ul class="features-list">
+                    <li><i class="fas fa-check"></i> Access to ALL Courses (A1-C1)</li>
+                    <li><i class="fas fa-check"></i> Unlimited Practice Materials</li>
+                    <li><i class="fas fa-check"></i> Culture & History Modules</li>
+                    <li><i class="fas fa-check"></i> Weekly Live Q&A Sessions</li>
+                    <li><i class="fas fa-check"></i> Dedicated 1-on-1 Feedback</li>
+                </ul>
+                <a href="#" class="cta-button secondary-btn">Go Premium</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="main-footer">
+        <div class="footer-content">
+            <p>&copy; 2025 Georgian Language Hub. All Rights Reserved.</p>
+            <div class="footer-links">
+                 <a href="#">Privacy Policy</a> | <a href="#">Terms & Conditions</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script> 
+
+</body>
+</html>

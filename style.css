@@ -1,19 +1,63 @@
-body {
-    /* Main body font: Inter (Best for screen readability/UX) */
-    font-family: 'Inter', sans-serif; 
-    font-weight: 300; 
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f4;
-    line-height: 1.7; 
-    color: #444; 
+
+/* ================================================= */
+/* 1. ROOT VARIABLES (ცვლადები ფერებისთვის და შრიფტებისთვის) */
+/* ================================================= */
+:root {
+    /* Brand Colors */
+    --color-primary: #c90000;     /* წითელი (მთავარი აქცენტი) */
+    --color-secondary: #f7b731;   /* ყვითელი (მეორადი აქცენტი/ჰოვერი) */
+    --color-dark: #333;          /* მუქი ტექსტი/ჰედერი */
+    --color-light-bg: #f4f4f4;   /* ღია ფონი */
+    --color-white: white;
+    --color-text-main: #444;     /* ტექსტის ფერი */
+    --color-text-sub: #666;      /* მეორადი ტექსტი */
+
+    /* Fonts */
+    --font-body: 'Inter', sans-serif;
+    --font-heading: 'Oswald', sans-serif;
+
+    /* Spacing */
+    --spacing-sm: 15px;
+    --spacing-md: 30px;
+    --spacing-lg: 60px;
 }
 
-/* --- HEADER AND NAVIGATION --- */
+/* ================================================= */
+/* 2. BASE STYLES AND TYPOGRAPHY (ძირითადი სტილები) */
+/* ================================================= */
+
+/* ყველა სექციისთვის შინაარსის გასაცენტრებლად (HTML-ში უნდა შემოწეროთ) */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 5%;
+}
+
+body {
+    font-family: var(--font-body);
+    font-weight: 300;
+    font-size: 16px; /* საბაზისო ზომა */
+    margin: 0;
+    padding: 0;
+    background-color: var(--color-light-bg);
+    line-height: 1.7;
+    color: var(--color-text-main);
+}
+
+/* ყველა სათაური იყენებს Oswald-ს თანმიმდევრულობისთვის */
+h1, h2, h3, h4 {
+    font-family: var(--font-heading);
+    line-height: 1.2;
+    color: var(--color-dark);
+}
+
+/* ================================================= */
+/* 3. HEADER AND NAVIGATION */
+/* ================================================= */
 .main-header {
-    background-color: #333;
-    color: white;
-    padding: 15px 5%;
+    background-color: var(--color-dark);
+    color: var(--color-white);
+    padding: var(--spacing-sm) 0; /* padding 0-ია გვერდებიდან, გამოიყენეთ .container */
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -24,39 +68,76 @@ body {
 
 .logo {
     font-size: 1.4em;
-    font-weight: 700; 
+    font-weight: 700;
 }
 
 .main-nav a {
-    color: white;
+    color: var(--color-white);
     text-decoration: none;
     margin-left: 20px;
     font-size: 1em;
-    font-weight: 400; 
+    font-weight: 400;
     transition: color 0.3s;
 }
 
 .main-nav a:hover {
-    color: #f7b731; /* Accent color for hover effect */
+    color: var(--color-secondary); /* Accent color for hover effect */
 }
 
 .social-icon i {
     font-size: 1.3em;
-    color: white;
+    color: var(--color-white);
     margin-left: 10px;
 }
 
-/* ------------------------------------------------ */
-/* HERO SECTION (Red Background & Oswald Font for H1) */
-/* ------------------------------------------------ */
+/* ================================================= */
+/* 4. BUTTONS (ღილაკები) */
+/* ================================================= */
+.primary-btn, .secondary-btn {
+    display: inline-block;
+    padding: 15px 45px;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 1.1em;
+    transition: background-color 0.3s, color 0.3s;
+    border: none; /* დარწმუნდით, რომ border არ აქვს */
+    cursor: pointer;
+}
 
+.primary-btn {
+    background-color: var(--color-white);
+    color: var(--color-primary);
+}
+
+.primary-btn:hover {
+    background-color: #eee;
+}
+
+.secondary-btn {
+    background-color: var(--color-dark);
+    color: var(--color-white);
+}
+
+.secondary-btn:hover {
+    background-color: #111;
+}
+
+.small-btn {
+    padding: 10px 20px;
+    font-size: 0.9em;
+}
+
+
+/* ================================================= */
+/* 5. HERO SECTION */
+/* ================================================= */
 .hero-section {
-    /* Background Color: Intense Red */
-    background-color: #c90000; 
-    color: white; 
-    text-align: center; 
-    padding: 150px 5%; 
-    min-height: 80vh; 
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    text-align: center;
+    padding: 150px 5%;
+    min-height: 80vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -64,646 +145,156 @@ body {
 }
 
 .hero-content {
-    max-width: 900px; 
+    max-width: 900px;
 }
 
 .hero-section h1 {
-    /* FONT CHANGE: Now using Oswald (Strong, condensed display font) */
-    font-family: 'Oswald', sans-serif; 
-    font-size: 5.2em; /* Slightly larger size */
-    font-weight: 700; /* Bold */
+    font-family: var(--font-heading);
+    font-size: 5.2em;
+    font-weight: 700;
     margin: 0 0 20px 0;
     line-height: 1.1;
-    text-transform: uppercase; 
-    letter-spacing: 2px; /* Slight spacing for impact */
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--color-white); /* სათაური თეთრია, რადგან ფონი წითელია */
 }
 
 .hero-section .subtitle {
     font-size: 1.3em;
     margin-bottom: 30px;
-    font-weight: 300; 
+    font-weight: 300;
 }
 
-.primary-btn {
-    display: inline-block;
-    background-color: white;
-    color: #c90000;
-    padding: 15px 45px;
-    text-decoration: none;
-    border-radius: 50px; 
-    font-weight: 600; 
-    font-size: 1.1em;
-    transition: background-color 0.3s;
-}
+/* ================================================= */
+/* 6. GENERAL CONTENT SECTIONS */
+/* ================================================= */
 
-.primary-btn:hover {
-    background-color: #eee;
-}
-
-
-/* --- SERVICES / FEATURES SECTION --- */
-.services-section {
-    padding: 60px 5%;
-    text-align: center;
-    background-color: white;
+.services-section, .about-story-section, .pricing-section, .course-list-section, .contact-section {
+    padding: var(--spacing-lg) 5%; /* თანმიმდევრული padding */
 }
 
 .section-title {
     font-size: 2.5em;
-    color: #333;
-    font-weight: 700; 
+    color: var(--color-dark);
+    font-weight: 700;
     margin-bottom: 50px;
+    text-align: center;
 }
 
+/* Services */
 .service-grid {
     display: flex;
     justify-content: space-around;
-    gap: 30px;
+    gap: var(--spacing-md);
 }
 
 .service-card {
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-    flex: 1;
-    transition: transform 0.3s;
-}
-
-.service-card:hover {
-    transform: translateY(-5px); 
+    /* ... არსებული კოდი ... */
 }
 
 .service-card i {
-    color: #c90000;
-    margin-bottom: 15px;
+    color: var(--color-primary);
+    /* ... */
 }
 
-.service-card h3 {
-    color: #444;
-    font-size: 1.3em;
-    font-weight: 700; /* Bold headings with Inter */
-    margin-top: 0;
-}
-
-
-/* --- FOOTER --- */
-.main-footer {
-    background-color: #333;
-    color: white;
-    padding: 30px 5%;
-    text-align: center;
-}
-
-.footer-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.footer-links a {
-    color: #ccc;
-    margin-left: 20px;
-    text-decoration: none;
-    font-weight: 300;
-}
-.page-hero-section {
-    background-color: #333; /* Dark background for subpage headers */
-    color: white;
-    text-align: center;
-    padding: 80px 5%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.page-hero-section h1 {
-    font-family: 'Oswald', sans-serif;
-    font-size: 3.5em; 
-    font-weight: 700;
-    margin: 0 0 10px 0;
-    text-transform: uppercase;
-}
-
-.page-hero-section .subtitle {
-    font-size: 1.1em;
-    font-weight: 300;
-}
-
-
-/* --- PRICING SECTION LAYOUT --- */
-.pricing-section {
-    padding: 80px 5%;
-    text-align: center;
-}
-
+/* ================================================= */
+/* 7. PRICING SECTION */
+/* ================================================= */
 .pricing-grid {
     display: flex;
     justify-content: center;
-    gap: 30px;
+    gap: var(--spacing-md);
     margin-top: 40px;
 }
 
-/* Pricing Card Styling */
 .price-card {
-    background: white;
-    padding: 40px 30px;
-    border-radius: 12px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    flex: 1;
-    max-width: 350px;
-    transition: transform 0.3s, box-shadow 0.3s;
-    border: 3px solid transparent;
-    position: relative;
+    /* ... */
 }
 
-.price-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
-}
-
-/* Featured (Most Popular) Card */
 .price-card.featured {
-    border-color: #c90000; /* Red border for featured plan */
-    transform: scale(1.05); /* Slightly larger */
-}
-
-.price-card.featured:hover {
-    transform: scale(1.05); /* Prevent scaling on hover to keep it centered */
-}
-
-.price-card h3 {
-    font-size: 1.8em;
-    font-weight: 700;
-    color: #333;
-    margin-top: 0;
+    border-color: var(--color-primary);
+    /* ... */
 }
 
 .price-card .price {
-    font-size: 3.5em;
-    font-weight: 700;
-    color: #c90000;
-    margin: 10px 0;
-    line-height: 1;
-}
-
-.price-card .price span {
-    font-size: 0.4em;
-    font-weight: 400;
-    color: #888;
+    color: var(--color-primary);
 }
 
 .price-card .description {
-    color: #666;
-    margin-bottom: 25px;
-    font-weight: 400;
-    min-height: 40px; /* Ensures consistent height */
-}
-
-/* Features List */
-.features-list {
-    list-style: none;
-    padding: 0;
-    margin-bottom: 30px;
-    text-align: left;
-}
-
-.features-list li {
-    margin-bottom: 12px;
-    font-weight: 400;
+    color: var(--color-text-sub);
+    /* ... */
 }
 
 .features-list i {
-    color: #c90000;
-    margin-right: 10px;
-    font-size: 0.9em;
+    color: var(--color-primary);
+    /* ... */
 }
 
-.features-list li.disabled {
-    color: #aaa;
-    text-decoration: line-through;
-}
-
-.features-list li.disabled i {
-    color: #aaa;
-}
-
-/* Secondary Button Style (used for Basic and Premium) */
-.secondary-btn {
-    background-color: #333;
-    color: white;
-}
-
-.secondary-btn:hover {
-    background-color: #111;
-}
-
-/* Tag (Most Popular) */
 .tag {
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: #f7b731; /* Accent color */
-    color: #333;
-    padding: 8px 15px;
-    border-radius: 50px;
-    font-weight: 700;
-    font-size: 0.85em;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
-
-/* --- Plan Toggle (Optional: For Monthly/Annual Switching) --- */
-.plan-toggle {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 50px;
-    gap: 15px;
-}
-
-.toggle-text {
-    font-weight: 600;
-    color: #666;
-}
-
-.toggle-text.active {
-    color: #c90000;
-}
-
-/* Toggle Switch Styles (Standard CSS implementation) */
-.switch {
-  position: relative;
-  display: inline-block;
-  width: 60px;
-  height: 34px;
-}
-
-.switch input {
-  opacity: 0;
-  width: 0;
-  height: 0;
-}
-
-.slider {
-  position: absolute;
-  cursor: pointer;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #ccc;
-  transition: .4s;
-}
-
-.slider:before {
-  position: absolute;
-  content: "";
-  height: 26px;
-  width: 26px;
-  left: 4px;
-  bottom: 4px;
-  background-color: white;
-  transition: .4s;
+    background-color: var(--color-secondary);
+    color: var(--color-dark);
+    /* ... */
 }
 
 input:checked + .slider {
-  background-color: #c90000;
+    background-color: var(--color-primary);
 }
 
-input:checked + .slider:before {
-  transform: translateX(26px);
+/* ================================================= */
+/* 8. COURSE LIST SECTION */
+/* ================================================= */
+.course-card i {
+    color: var(--color-primary);
 }
 
-.slider.round {
-  border-radius: 34px;
-}
+/* Level Tags - გამოიყენეთ ცვლადები თუ ფერებს ხშირად ცვლით */
+.level-tag.beginner { background-color: #ffe082; color: #a1887f; }
+.level-tag.elementary { background-color: #a5d6a7; color: #388e3c; }
+.level-tag.intermediate { background-color: #90caf9; color: #1976d2; }
+.level-tag.upper-intermediate { background-color: #ffccbc; color: #d84315; }
 
-.slider.round:before {
-  border-radius: 50%;
-}
 
-/* --- MEDIA QUERIES (Responsiveness) --- */
-@media (max-width: 900px) {
-    .pricing-grid {
-        flex-direction: column;
-        align-items: center;
-    }
-    .price-card, .price-card.featured {
-        width: 90%;
-        max-width: 400px;
-        transform: none;
-    }
-    .price-card.featured {
-        margin: 20px 0; /* Add margin to separate the featured card */
-    }
-}
-.course-list-section {
-    padding: 60px 5%;
-    background-color: #f4f4f4;
-    text-align: center;
-}
-
-.course-grid-container {
-    display: flex;
-    flex-wrap: wrap; /* Allows cards to wrap on smaller screens */
-    gap: 30px;
-    justify-content: center;
-    margin-top: 40px;
-}
-
-.course-card.detailed {
-    background: white;
-    border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-    overflow: hidden;
-    flex: 1 1 calc(50% - 30px); /* Two cards per row on large screens */
-    max-width: 500px;
-    text-align: left;
-    transition: box-shadow 0.3s;
-}
-
-.course-card.detailed:hover {
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-}
-
-.course-header {
-    background-color: #eee;
-    padding: 20px 25px 15px;
-    border-bottom: 3px solid #ddd;
-}
-
-.course-card h3 {
-    margin: 5px 0 0;
-    font-size: 1.5em;
-    font-weight: 700;
-    color: #333;
-}
-
-.course-details {
-    padding: 25px;
-}
-
-.course-details p {
-    color: #666;
-    margin-bottom: 20px;
-    min-height: 75px; /* Ensures card heights are relatively consistent */
-}
-
-/* Course Metadata (Duration, Videos, Rating) */
-.course-meta {
-    display: flex;
-    justify-content: space-between;
-    font-size: 0.9em;
-    color: #888;
-    margin-bottom: 20px;
-}
-
-.course-meta i {
-    margin-right: 5px;
-    color: #c90000;
-}
-
-/* Level Tags */
-.level-tag {
-    display: inline-block;
-    padding: 5px 10px;
-    border-radius: 5px;
-    font-weight: 600;
-    font-size: 0.8em;
-    text-transform: uppercase;
-    margin-bottom: 10px;
-}
-
-.level-tag.beginner { background-color: #ffe082; color: #a1887f; } /* Light yellow/brown */
-.level-tag.elementary { background-color: #a5d6a7; color: #388e3c; } /* Light green/green */
-.level-tag.intermediate { background-color: #90caf9; color: #1976d2; } /* Light blue/blue */
-.level-tag.upper-intermediate { background-color: #ffccbc; color: #d84315; } /* Light orange/red */
-
-/* Small Button on Course Card */
-.small-btn {
-    padding: 10px 20px;
-    font-size: 0.9em;
-}
-
-/* Coming Soon Card Style */
-.course-card.coming-soon {
-    opacity: 0.6;
-}
-
-.course-card.coming-soon .secondary-btn {
-    pointer-events: none; /* Disables click */
-}
-
-/* Media Query for responsiveness */
-@media (max-width: 768px) {
-    .course-card.detailed {
-        flex: 1 1 100%; /* One card per row on mobile */
-        max-width: 100%;
-    }
-}
-.about-story-section {
-    padding: 80px 5%;
-    background-color: white;
-}
-
-.story-content {
-    max-width: 1000px;
-    margin: 0 auto;
-}
-
-.section-title.left-align {
-    text-align: left;
-    margin-bottom: 30px;
-    color: #c90000; /* Use the brand red for the main story title */
-    font-size: 2.2em;
-}
-
-.story-text p {
-    font-size: 1.1em;
-    margin-bottom: 20px;
-    color: #333;
-}
-
-.story-text .emphasis {
-    font-weight: 600;
-    font-style: italic;
-    color: #c90000;
-}
-
-/* --- Value Pillars Grid --- */
-.value-pillars {
-    margin-top: 60px;
-    padding-top: 40px;
-    border-top: 1px solid #eee;
-}
-
-.pillar-title {
-    font-weight: 700;
-    font-size: 1.8em;
-    text-align: center;
-    color: #333;
-    margin-bottom: 30px;
-}
-
-.pillar-grid {
-    display: flex;
-    justify-content: space-around;
-    gap: 30px;
-    text-align: center;
-}
-
-.pillar-card {
-    flex: 1;
-    padding: 20px;
-    border-radius: 8px;
-    background-color: #f9f9f9;
-}
-
-.pillar-card i {
-    font-size: 2.5em;
-    color: #c90000;
-    margin-bottom: 10px;
-}
-
-.pillar-card h4 {
-    font-weight: 700;
-    font-size: 1.2em;
-    margin-top: 0;
-}
-
-/* --- CTA Banner --- */
-.cta-banner {
-    background-color: #333;
-    color: white;
-    text-align: center;
-    padding: 60px 5%;
-}
-
-.cta-banner h2 {
-    font-family: 'Oswald', sans-serif;
-    font-size: 2.8em;
-    font-weight: 700;
-    margin-bottom: 30px;
-}
-
-/* Media Query for responsiveness */
-@media (max-width: 768px) {
-    .pillar-grid {
-        flex-direction: column;
-    }
-    .story-text p {
-        font-size: 1em;
-    }
-}
-
-/* ------------------------------------------------ */
-/* CONTACT PAGE SPECIFIC STYLES */
-/* ------------------------------------------------ */
-
-.contact-section {
-    padding: 60px 5%;
-    background-color: white;
-}
-
-.contact-container {
-    display: flex;
-    gap: 40px;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.contact-form-wrapper {
-    flex: 2; /* Takes up two-thirds of the space */
-}
-
+/* ================================================= */
+/* 9. CONTACT SECTION */
+/* ================================================= */
 .contact-info {
-    flex: 1; /* Takes up one-third of the space */
-    padding: 20px;
     background-color: #f9f9f9;
-    border-radius: 8px;
-    height: fit-content; /* Ensures background stops at content end */
-}
-
-/* Form Styles */
-.contact-form {
-    margin-top: 20px;
-}
-
-.form-group {
-    margin-bottom: 20px;
-}
-
-.contact-form label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: 600;
-    color: #444;
-}
-
-.contact-form input[type="text"],
-.contact-form input[type="email"],
-.contact-form select,
-.contact-form textarea {
-    width: 100%;
-    padding: 12px;
-    border: 1px solid #ddd;
-    border-radius: 6px;
-    font-family: 'Inter', sans-serif;
-    font-size: 1em;
-    box-sizing: border-box;
-    transition: border-color 0.3s;
 }
 
 .contact-form input:focus,
 .contact-form select:focus,
 .contact-form textarea:focus {
-    border-color: #c90000;
-    outline: none;
-}
-
-.contact-form textarea {
-    resize: vertical;
-}
-
-/* Contact Info Sidebar Styles */
-.info-item {
-    margin-bottom: 30px;
-    padding-bottom: 15px;
-    border-bottom: 1px solid #eee;
-}
-
-.info-item:last-child {
-    border-bottom: none;
-    margin-bottom: 0;
+    border-color: var(--color-primary);
 }
 
 .info-item i {
-    font-size: 1.5em;
-    color: #c90000;
-    margin-bottom: 10px;
+    color: var(--color-primary);
 }
 
-.info-item h4 {
-    font-weight: 700;
-    font-size: 1.1em;
-    margin: 5px 0;
+/* ================================================= */
+/* 10. FOOTER */
+/* ================================================= */
+.main-footer {
+    background-color: var(--color-dark);
+    color: var(--color-white);
+    padding: var(--spacing-md) 5%;
+    text-align: center;
 }
 
-.info-item p {
-    color: #666;
-    font-size: 0.95em;
+.footer-content {
+    /* ... */
 }
 
 
-/* Media Query for Responsiveness */
+/* ================================================= */
+/* 11. MEDIA QUERIES (Responsiveness) */
+/* ================================================= */
 @media (max-width: 900px) {
-    .contact-container {
-        flex-direction: column;
+    /* ... არსებული კოდი ... */
+    .hero-section h1 {
+        font-size: 3.5em; /* ზომის შემცირება მობილურზე */
     }
-    .contact-info {
-        order: -1; /* Puts the info section above the form on mobile */
-    }
+}
+@media (max-width: 768px) {
+    /* ... არსებული კოდი ... */
 }
